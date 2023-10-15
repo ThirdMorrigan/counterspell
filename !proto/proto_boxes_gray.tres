@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cs3tw7rnhind2"]
+
+[ext_resource type="Shader" path="res://!proto/proto_boxes.gdshader" id="1_l0qvj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l0qvj")
+shader_parameter/RED = 0.2
+shader_parameter/BLUE = 0.2
+shader_parameter/GREEN = 0.2

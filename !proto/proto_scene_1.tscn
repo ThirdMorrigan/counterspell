@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://yg3qhvx8qqfi"]
+[gd_scene load_steps=3 format=3 uid="uid://yg3qhvx8qqfi"]
+
+[ext_resource type="Material" uid="uid://cs3tw7rnhind2" path="res://!proto/proto_boxes_gray.tres" id="1_fmsco"]
+[ext_resource type="PackedScene" uid="uid://bwlmk7cjcok7y" path="res://!proto/proto_character.tscn" id="1_m1jqt"]
 
 [node name="proto_scene_1" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+material_override = ExtResource("1_fmsco")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+use_collision = true
+size = Vector3(40, 5, 40)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+operation = 2
+use_collision = true
+size = Vector3(38, 5, 38)
+
+[node name="proto_character" parent="." instance=ExtResource("1_m1jqt")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.663613, -0.624817, 0.411365, 0, 0.549898, 0.835232, -0.748076, -0.554271, 0.364919, 0, 0, 0)
+shadow_enabled = true

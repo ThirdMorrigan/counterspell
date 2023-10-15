@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwlmk7cjcok7y"]
+
+[ext_resource type="Script" path="res://!proto/proto_character.gd" id="1_l4220"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lf27m"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_xlhs3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hab0n"]
+radius = 0.4
+height = 1.9
+
+[node name="proto_character" type="CharacterBody3D"]
+script = ExtResource("1_l4220")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_lf27m")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0)
+shape = SubResource("SeparationRayShape3D_xlhs3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+mesh = SubResource("CapsuleMesh_hab0n")
+
+[node name="main_camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4485, 0)
