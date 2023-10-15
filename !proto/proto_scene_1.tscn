@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://yg3qhvx8qqfi"]
+[gd_scene load_steps=6 format=3 uid="uid://yg3qhvx8qqfi"]
 
 [ext_resource type="Material" uid="uid://cs3tw7rnhind2" path="res://!proto/proto_boxes_gray.tres" id="1_fmsco"]
 [ext_resource type="PackedScene" uid="uid://bwlmk7cjcok7y" path="res://!proto/proto_character.tscn" id="1_m1jqt"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0lg7u"]
+
+[sub_resource type="Sky" id="Sky_b26q2"]
+sky_material = SubResource("PhysicalSkyMaterial_0lg7u")
+
+[sub_resource type="Environment" id="Environment_rngcy"]
+background_mode = 2
+sky = SubResource("Sky_b26q2")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+glow_levels/2 = 0.9
+glow_levels/3 = 0.0
+glow_levels/5 = 0.28
+glow_levels/7 = 0.9
+glow_normalized = true
+glow_bloom = 0.02
+fog_enabled = true
+fog_sun_scatter = 0.18
+fog_aerial_perspective = 0.789
+adjustment_enabled = true
 
 [node name="proto_scene_1" type="Node3D"]
 
@@ -20,8 +44,50 @@ operation = 2
 use_collision = true
 size = Vector3(38, 5, 38)
 
-[node name="proto_character" parent="." instance=ExtResource("1_m1jqt")]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5875, 0, -10)
+polygon = PackedVector2Array(0, 0, 3, 2, 5, 2, 5, 0)
+depth = 4.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.663613, -0.624817, 0.411365, 0, 0.549898, 0.835232, -0.748076, -0.554271, 0.364919, 0, 0, 0)
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 17)
+polygon = PackedVector2Array(-3, 0, 5, 5, 8, 5, 6, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 13)
+polygon = PackedVector2Array(-3, 0, 5, 5, 9, 5, 6, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 8)
+polygon = PackedVector2Array(0, 0, 5, 5, 9, 5, 6, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+polygon = PackedVector2Array(1.5, 1.5, 3, 3, 7, 3, 7, 1.5)
+depth = 2.0
+
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+polygon = PackedVector2Array(2, 2, 3, 3, 7, 3, 7, 2)
+depth = 2.0
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89751, 0, 20)
+polygon = PackedVector2Array(0, 0, -2, 6, 6, 6, 6, 0)
+depth = 18.95
+
+[node name="proto_character" parent="." instance=ExtResource("1_m1jqt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113469, -1.13586)
+
+[node name="proto_env_1" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="proto_env_1"]
+transform = Transform3D(0.786849, -0.45777, 0.413903, -1.38266e-08, 0.670673, 0.741754, -0.617146, -0.583648, 0.527718, 0, 0, 0)
+light_energy = 2.676
 shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="proto_env_1"]
+environment = SubResource("Environment_rngcy")
