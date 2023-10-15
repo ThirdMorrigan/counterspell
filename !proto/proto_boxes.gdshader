@@ -29,7 +29,8 @@ void vertex() {
 }
 
 void fragment() {
-	vec4 _n = vec4(NORMAL,1.0) * VIEW_MATRIX;
+	vec4 n = vec4(NORMAL,1.0) * VIEW_MATRIX;
+	vec3 _n = normalize(vec3(n.x,n.y,n.z));
 	vec3 n_opacities = vec3(0.0);
 	n_opacities.x = opacity_calc(_n.x, _n.y, _n.z);
 	n_opacities.y = opacity_calc(_n.y, _n.x, _n.z);
