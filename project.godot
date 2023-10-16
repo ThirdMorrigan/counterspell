@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Counterspell"
-run/main_scene="res://!proto/proto_scene_1.tscn"
+run/main_scene="res://!proto/proto_scene_0.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [input]
 
@@ -62,3 +67,7 @@ C={
 [physics]
 
 common/physics_ticks_per_second=120
+
+[rendering]
+
+lights_and_shadows/use_physical_light_units=true

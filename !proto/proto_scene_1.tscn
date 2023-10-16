@@ -1,20 +1,22 @@
 [gd_scene load_steps=6 format=3 uid="uid://yg3qhvx8qqfi"]
 
 [ext_resource type="Material" uid="uid://cs3tw7rnhind2" path="res://!proto/proto_boxes_gray.tres" id="1_fmsco"]
-[ext_resource type="PackedScene" uid="uid://bwlmk7cjcok7y" path="res://!proto/proto_character.tscn" id="1_m1jqt"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_0lg7u"]
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_66wd6"]
 
 [sub_resource type="Sky" id="Sky_b26q2"]
-sky_material = SubResource("PhysicalSkyMaterial_0lg7u")
+sky_material = SubResource("PhysicalSkyMaterial_66wd6")
 
 [sub_resource type="Environment" id="Environment_rngcy"]
 background_mode = 2
 sky = SubResource("Sky_b26q2")
 ssr_enabled = true
-ssao_enabled = true
+ssao_radius = 4.2
+ssao_intensity = 3.85
 ssil_enabled = true
 sdfgi_enabled = true
+sdfgi_cascades = 2
+sdfgi_min_cell_size = 0.87
 glow_enabled = true
 glow_levels/2 = 0.9
 glow_levels/3 = 0.0
@@ -22,10 +24,12 @@ glow_levels/5 = 0.28
 glow_levels/7 = 0.9
 glow_normalized = true
 glow_bloom = 0.02
-fog_enabled = true
-fog_sun_scatter = 0.18
-fog_aerial_perspective = 0.789
-adjustment_enabled = true
+fog_sun_scatter = 0.06
+fog_density = 0.005
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_nxr7o"]
+auto_exposure_enabled = true
+auto_exposure_speed = 4.0
 
 [node name="proto_scene_1" type="Node3D"]
 
@@ -79,8 +83,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89751, 0, 20)
 polygon = PackedVector2Array(0, 0, -2, 6, 6, 6, 6, 0)
 depth = 18.95
 
-[node name="proto_character" parent="." instance=ExtResource("1_m1jqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.113469, -1.13586)
+[node name="scene_cam" type="Camera3D" parent="."]
+transform = Transform3D(-0.861627, 0.371193, -0.346144, 0, 0.682, 0.731353, 0.507543, 0.630153, -0.587629, -16.9219, 19.0897, -23.4394)
+fov = 37.8493
 
 [node name="proto_env_1" type="Node3D" parent="."]
 
@@ -91,3 +96,4 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="proto_env_1"]
 environment = SubResource("Environment_rngcy")
+camera_attributes = SubResource("CameraAttributesPhysical_nxr7o")

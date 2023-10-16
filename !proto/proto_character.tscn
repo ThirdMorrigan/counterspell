@@ -6,12 +6,12 @@
 radius = 0.4
 height = 1.8
 
-[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_xlhs3"]
-length = 0.5
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hab0n"]
 radius = 0.4
 height = 1.9
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_xlhs3"]
+length = 0.5
 
 [node name="proto_character" type="CharacterBody3D"]
 collision_layer = 16
@@ -22,22 +22,6 @@ script = ExtResource("1_l4220")
 [node name="cap" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_lf27m")
-
-[node name="separation_ray" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, -0.2)
-shape = SubResource("SeparationRayShape3D_xlhs3")
-
-[node name="separation_ray2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0.2)
-shape = SubResource("SeparationRayShape3D_xlhs3")
-
-[node name="separation_ray3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.2, 0.5, 0)
-shape = SubResource("SeparationRayShape3D_xlhs3")
-
-[node name="separation_ray4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.2, 0.5, 0)
-shape = SubResource("SeparationRayShape3D_xlhs3")
 
 [node name="visuals" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
@@ -52,3 +36,20 @@ target_position = Vector3(0, -1.5, 0)
 hit_from_inside = true
 
 [node name="stand_check" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+
+[node name="separation_ray_Z-" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, -0.2)
+shape = SubResource("SeparationRayShape3D_xlhs3")
+
+[node name="separation_ray_Z+" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.5, 0.2)
+shape = SubResource("SeparationRayShape3D_xlhs3")
+
+[node name="separation_ray_X-" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.2, 0.5, 0)
+shape = SubResource("SeparationRayShape3D_xlhs3")
+
+[node name="separation_ray_X+" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.2, 0.5, 0)
+shape = SubResource("SeparationRayShape3D_xlhs3")

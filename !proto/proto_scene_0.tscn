@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://7elxoag3mest"]
+
+[ext_resource type="PackedScene" uid="uid://bwlmk7cjcok7y" path="res://!proto/proto_character.tscn" id="1_be5nw"]
+[ext_resource type="PackedScene" uid="uid://yg3qhvx8qqfi" path="res://!proto/proto_scene_1.tscn" id="2_i0aom"]
+
+[node name="proto_scene_0" type="Node3D"]
+
+[node name="proto_character" parent="." instance=ExtResource("1_be5nw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.77391)
+
+[node name="proto_scene_1" parent="." instance=ExtResource("2_i0aom")]
