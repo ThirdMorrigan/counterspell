@@ -21,19 +21,26 @@ var speed : float
 
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _enter_tree():
+	set_multiplayer_authority(str(name).to_int()) #I am aware of how goofy this is
+	
 func _ready():
+	#if not is_multiplayer_authority(): return
 	current_height = HEIGHT
 	$stand_check.position.y = HEIGHT_CROUCH
 	$stand_check.target_position.y = HEIGHT - HEIGHT_CROUCH
 	speed = SPEED
 	set_height(HEIGHT)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	main_camera.current = true
 
 func _unhandled_input(event):
+	#if not is_multiplayer_authority(): return
 	if event is InputEventMouseMotion:
 		mouse_look(-event.relative)
 
 func _physics_process(delta):
+	#if not is_multiplayer_authority(): return
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta

@@ -49,5 +49,9 @@ layout_mode = 2
 text = "target address (not functional)"
 alignment = 1
 
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://!proto/proto_character.tscn")
+spawn_path = NodePath("..")
+
 [connection signal="pressed" from="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer/join_button" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer/host_button" to="." method="_on_host_button_pressed"]
