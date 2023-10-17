@@ -40,7 +40,7 @@ func _process(delta):
 	viewmodel_camera.position.y += current_height - 0.35
 
 func _physics_process(delta):
-	
+
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	elif velocity:
@@ -118,4 +118,3 @@ func accelerate_air(wish_3:Vector3,delta:float):
 	velocity += wish_3 * add_speed
 	
 	
-
