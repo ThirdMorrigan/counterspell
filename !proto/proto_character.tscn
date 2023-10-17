@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwlmk7cjcok7y"]
+[gd_scene load_steps=6 format=3 uid="uid://bwlmk7cjcok7y"]
 
 [ext_resource type="Script" path="res://!proto/proto_character.gd" id="1_l4220"]
+[ext_resource type="ArrayMesh" uid="uid://dc4qse8ktckmt" path="res://Staff.obj" id="2_xw0wl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lf27m"]
 radius = 0.4
@@ -29,6 +30,30 @@ mesh = SubResource("CapsuleMesh_hab0n")
 
 [node name="main_camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45, 0)
+cull_mask = 1048573
+
+[node name="Staff" type="MeshInstance3D" parent="main_camera"]
+transform = Transform3D(1, 0, 0, 0, 0.876155, 0.482029, 0, -0.482029, 0.876155, 0.436201, -3.37454, 1.02399)
+layers = 2
+mesh = ExtResource("2_xw0wl")
+skeleton = NodePath("../..")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="main_camera"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="main_camera/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="main_camera/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44932, 0)
+cull_mask = 1047554
+current = true
 
 [node name="leading_edge" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.4)

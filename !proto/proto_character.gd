@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @onready var main_camera = $main_camera
-
+@onready var viewModel_camera = $main_camera/SubViewportContainer/SubViewport/Camera3D
 @export var SPEED : float = 5.0
 @export var FRICTION : float = 20.0
 @export var ACCEL : float = 60.0
@@ -85,6 +85,9 @@ func mouse_look(by:Vector2):
 	by *= MOUSE_SCALE * SENSITIVITY
 	rotate_y(by.x)
 	main_camera.rotate_x(by.y)
+	main_camera.rotation_degrees.x = clamp(main_camera.rotation_degrees.x, -90.0, 90.0)
+	
+	
 
 func friction(delta:float, moving:Vector2):
 	if is_on_floor():
@@ -107,3 +110,8 @@ func accelerate_air(wish_3:Vector3,delta:float):
 	var current_speed = vel_h.dot(wish_3)
 	var add_speed = clamp(delta*ACCEL*0.15, 0.0, speed*0.75-current_speed)
 	velocity += wish_3 * add_speed
+	
+	
+
+func _process(_delta):
+	viewModel_camera.global_transform = main_camera.global_transform
