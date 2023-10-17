@@ -112,6 +112,3 @@ func accelerate_air(wish_3:Vector3,delta:float):
 	velocity += wish_3 * add_speed
 	
 	
-
-func _process(_delta):
-	viewModel_camera.global_transform = main_camera.global_transform
