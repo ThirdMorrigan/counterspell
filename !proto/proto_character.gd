@@ -1,8 +1,7 @@
 extends CharacterBody3D
 
 @onready var main_camera = $main_camera
-@onready var viewModel_camera = $main_camera/SubViewportContainer/SubViewport/Camera3D
-@onready var viewModel_viewport = $main_camera/SubViewportContainer/SubViewport
+@onready var viewModel_camera = $SubViewportContainer/SubViewport/Camera3D
 @export var SPEED : float = 5.0
 @export var FRICTION : float = 20.0
 @export var ACCEL : float = 60.0
@@ -35,7 +34,7 @@ func _unhandled_input(event):
 		mouse_look(-event.relative)
 
 func _physics_process(delta):
-	
+
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	elif velocity:
