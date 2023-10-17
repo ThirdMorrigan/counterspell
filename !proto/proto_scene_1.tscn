@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yg3qhvx8qqfi"]
 
 [ext_resource type="Material" uid="uid://cs3tw7rnhind2" path="res://!proto/proto_boxes_gray.tres" id="1_fmsco"]
-[ext_resource type="PackedScene" uid="uid://bfcb7s1mhoh2p" path="res://proto_env_1.tscn" id="2_5rlju"]
+[ext_resource type="PackedScene" uid="uid://bfcb7s1mhoh2p" path="res://!proto/proto_env_1.tscn" id="2_5rlju"]
 
 [node name="proto_scene_1" type="Node3D"]
 

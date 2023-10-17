@@ -1,7 +1,8 @@
 extends CharacterBody3D
 
 @onready var main_camera = $main_camera
-@onready var viewModel_camera = $main_camera/SubViewportContainer/SubViewport/Camera3D
+@onready var viewmodel_camera = $main_camera/SubViewportContainer/viewmodel_subviewport/Camera3D
+@onready var viewmodel_subviewport = $main_camera/SubViewportContainer/viewmodel_subviewport
 @export var SPEED : float = 5.0
 @export var FRICTION : float = 20.0
 @export var ACCEL : float = 60.0
@@ -28,10 +29,15 @@ func _ready():
 	speed = SPEED
 	set_height(HEIGHT)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	viewmodel_subviewport.size = get_viewport().size
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		mouse_look(-event.relative)
+
+func _process(delta):
+	viewmodel_camera.transform = transform
+	viewmodel_camera.position.y += current_height - 0.35
 
 func _physics_process(delta):
 	
@@ -113,5 +119,3 @@ func accelerate_air(wish_3:Vector3,delta:float):
 	
 	
 
-func _process(_delta):
-	viewModel_camera.global_transform = main_camera.global_transform

@@ -31,6 +31,7 @@ auto_exposure_enabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.786849, -0.45777, 0.413903, -1.38266e-08, 0.670673, 0.741754, -0.617146, -0.583648, 0.527718, 0, 0, 0)
+layers = 3
 light_energy = 2.676
 shadow_enabled = true
 
