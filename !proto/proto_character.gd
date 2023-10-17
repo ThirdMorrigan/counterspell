@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var main_camera = $main_camera
 @onready var viewModel_camera = $main_camera/SubViewportContainer/SubViewport/Camera3D
+@onready var viewModel_viewport = $main_camera/SubViewportContainer/SubViewport
 @export var SPEED : float = 5.0
 @export var FRICTION : float = 20.0
 @export var ACCEL : float = 60.0
