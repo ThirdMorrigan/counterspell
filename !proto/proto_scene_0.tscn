@@ -1,53 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://7elxoag3mest"]
 
-[ext_resource type="Script" path="res://!proto/proto_scene_0.gd" id="1_kckur"]
+[ext_resource type="PackedScene" uid="uid://bwlmk7cjcok7y" path="res://!proto/proto_character.tscn" id="1_be5nw"]
 [ext_resource type="PackedScene" uid="uid://yg3qhvx8qqfi" path="res://!proto/proto_scene_1.tscn" id="2_i0aom"]
 
 [node name="proto_scene_0" type="Node3D"]
-script = ExtResource("1_kckur")
+
+[node name="proto_character" parent="." instance=ExtResource("1_be5nw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.77391)
 
 [node name="proto_scene_1" parent="." instance=ExtResource("2_i0aom")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="proto_main_menu" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 328.0
-offset_top = 155.0
-offset_right = -328.0
-offset_bottom = -155.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/proto_main_menu"]
-layout_mode = 2
-theme_override_constants/margin_left = 70
-theme_override_constants/margin_right = 70
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/proto_main_menu/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "CUNTERSPELL bottom text"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="join_button" type="Button" parent="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Join"
-
-[node name="host_button" type="Button" parent="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Host"
-
-[node name="join_address" type="LineEdit" parent="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "target address (not functional)"
-alignment = 1
-
-[connection signal="pressed" from="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer/join_button" to="." method="_on_join_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/proto_main_menu/MarginContainer/VBoxContainer/host_button" to="." method="_on_host_button_pressed"]
