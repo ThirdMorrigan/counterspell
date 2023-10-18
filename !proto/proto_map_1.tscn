@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://c72616op5rar4"]
+
+[ext_resource type="Material" uid="uid://cs3tw7rnhind2" path="res://!proto/proto_boxes_gray.tres" id="1_cocy7"]
+
+[node name="proto_map_1" type="CSGCombiner3D"]
+material_override = ExtResource("1_cocy7")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+use_collision = true
+size = Vector3(40, 5, 40)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+operation = 2
+use_collision = true
+size = Vector3(38, 5, 38)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5875, 0, -10)
+polygon = PackedVector2Array(0, 0, 3, 2, 5, 2, 5, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 17)
+polygon = PackedVector2Array(-3, 0, 5, 5, 8, 5, 6, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 13)
+polygon = PackedVector2Array(-3, 0, 5, 5, 9, 5, 6, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 8)
+polygon = PackedVector2Array(0, 0, 5, 5, 9, 5, 6, 0)
+depth = 4.0
+
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 4)
+polygon = PackedVector2Array(1.5, 1.5, 3, 3, 7, 3, 7, 1.5)
+depth = 2.0
+
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
+polygon = PackedVector2Array(2, 2, 3, 3, 7, 3, 7, 2)
+depth = 2.0
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.89751, 0, 20)
+polygon = PackedVector2Array(0, 0, -2, 6, 6, 6, 6, 0)
+depth = 18.95
